@@ -19,10 +19,19 @@
 
 ///////////////////////////////////////
 // Lecture: Scoping
-calculateAge(1965);
-function calculateAge(year) {
-  console.log(2018 - year);
-}
+//functions
+// calculateAge(1965);
+// function calculateAge(year) {
+//   console.log(2018 - year);
+// }
+//
+// //retirement(1965);
+// var retirement = function(year) {
+//   console.log(65 - (2018 - year));
+// }
+// retirement(1965);
+//variables
+
 
 
 // First scoping example
@@ -70,3 +79,26 @@ function third() {
 
 ///////////////////////////////////////
 // Lecture: The this keyword
+
+//METHOD BORROWING AND INNER FUNCTIONS!!!!
+
+// var john = {
+//   name: 'John',
+//   yearOfBirth: 1984,
+//   calculateAge: function() {
+//     console.log(this);
+//     console.log(2018 -
+//     this.yearOfBirth);
+//   }
+// }
+//
+// john.calculateAge();
+//
+// var mike = {
+//   name: 'Mike',
+//   yearOfBirth: 1984
+// };
+//
+// mike.calculateAge = john.calculateAge;
+//
+// mike.calculateAge();
