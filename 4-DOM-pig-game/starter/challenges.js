@@ -11,6 +11,7 @@ GAME RULES:
 var scores, roundScore, activePlayer;
 init();
 
+var lastDice;
 // dice = Math.floor(Math.random() * 6) + 1;
 
 // document.querySelector(`#current-${activePlayer}`).textContent = dice;
@@ -25,12 +26,17 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
   var diceDOM = document.querySelector('.dice');
   diceDOM.style.display = 'block';
   diceDOM.src = 'dice-' + dice + '.png';
-  if (dice !== 1) {
+  if (dice === 6 && lastDice === 6) {
+    scores[activePlayer] = 0;
+      document.querySelector('#score-' + activePlayer).textContent = '0';
+      nextPlayer();
+  } else if (dice !== 1) {
     roundScore += dice;
     document.querySelector('#current-' + activePlayer).textContent = roundScore;
   } else {
     nextPlayer();
   }
+  var lastDice = dice;
 });
 document.querySelector('.btn-hold').addEventListener('click', function() {
   scores[activePlayer] += roundScore;
