@@ -197,17 +197,31 @@ this.answers = answers;
 this.correct = correct;
 }
 
-var questions = ['Is Sally selling seashells on the sea shore?', 'Is the current president of the US admirable?', 'Are donkeys objectively adorable?']
 
-var answers = ['Yes', 'No']
+// Question.prototype.correctAns = function() {
+//   if (this.correct === correct) {
+//     console.log('That is correct!');
+//   } else {
+//     console.log('Wrong answer, try again!');
+//   }
+// }
+var q1 = new Question('Is javascript the greatest coding language?', ['yes','no'], 0);
 
-var queObjects = []
-var counter = 0;
-var cor =  0;
-for (i=0;i > questions.length; i++) {
-  if (counter === 1) cor = 1
-var newQuestion = Question(questions[counter], answers, answers[cor])
-counter++
-queObjects.append(newQuestion);
+var q2 = new Question('Is the sitting US president respectable?', ['yes', 'no'], 1);
+
+var q3 = new Question('Did the large hadron collider put our universe onto an alternate timeline?', ['yes', 'no'], 0);
+
+var questions = [q1, q2, q3];
+
+var n = Math.floor(Math.random() * questions.length); 
+
+
+
+Question.prototype.displayQue = function() {
+  console.log(this.question);
+  for (var i = 0; i < this.answers.length; i++) {
+    console.log(i + ': ' + this.answers[i]);
+  }
 }
-     
+
+questions[n].displayQue();
