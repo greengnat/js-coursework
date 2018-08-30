@@ -225,3 +225,10 @@ Question.prototype.displayQue = function() {
 }
 
 questions[n].displayQue();
+
+var inputAnswer = prompt('What is your answer? Please input a numner.');
+if (inputAnswer === this.correct) {
+  console.log('That is the right answer!');
+} else {
+  console.log('Wrong answer, try again.')
+}
