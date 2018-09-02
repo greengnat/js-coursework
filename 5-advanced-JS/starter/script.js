@@ -191,46 +191,42 @@
 // //.bind
 // var johnFriendly = john.presentation.bind(john, 'friendly');
 // johnFriendly('evening');
-var Question = function(question, answers, correct) {
-this.question = question;
-this.answers = answers;
-this.correct = correct;
-}
 
-
-// Question.prototype.correctAns = function() {
-//   if (this.correct === correct) {
-//     console.log('That is correct!');
-//   } else {
-//     console.log('Wrong answer, try again!');
-//   }
-// }
-var q1 = new Question('Is javascript the greatest coding language?', ['yes','no'], 0);
-
-var q2 = new Question('Is the sitting US president respectable?', ['yes', 'no'], 1);
-
-var q3 = new Question('Did the large hadron collider put our universe onto an alternate timeline?', ['yes', 'no'], 0);
-
-var questions = [q1, q2, q3];
-
-var n = Math.floor(Math.random() * questions.length); 
-
-
-
-Question.prototype.displayQue = function() {
-  console.log(this.question);
-  for (var i = 0; i < this.answers.length; i++) {
-    console.log(i + ': ' + this.answers[i]);
-  }
-}
-
-questions[n].displayQue();
-
-var inputAnswer = prompt('What is your answer? Please input a numner.');
-if (inputAnswer === this.correct) {
-  console.log('That is the right answer!');
-} else {
-  console.log('Wrong answer, try again.')
-}
-
-
+(function() {
+  var Question = function(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
+    }
+    
+    var q1 = new Question('Is javascript the greatest coding language?', ['yes','no'], 0);
+    
+    var q2 = new Question('Is the sitting US president respectable?', ['yes', 'no'], 1);
+    
+    var q3 = new Question('Did the large hadron collider put our universe onto an alternate timeline?', ['yes', 'no'], 0);
+    
+    var questions = [q1, q2, q3];
+    
+    var n = Math.floor(Math.random() * questions.length); 
+    
+    Question.prototype.displayQue = function() {
+      console.log(this.question);
+      for (var i = 0; i < this.answers.length; i++) {
+        console.log(i + ': ' + this.answers[i]);
+      }
+    }
+    
+    Question.prototype.checkAnswer = function(ans) {
+      if (ans === this.correct) {
+        console.log('correct!');
+      } else {
+        console.log('try again.');
+      }
+    }
+    
+    questions[n].displayQue();
+    
+    var answer = parseInt(prompt('please select the correct answer.'));
+    
+    questions[n].checkAnswer(answer);
+})();
