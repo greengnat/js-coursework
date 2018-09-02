@@ -232,3 +232,5 @@ if (inputAnswer === this.correct) {
 } else {
   console.log('Wrong answer, try again.')
 }
+
+
